@@ -1789,16 +1789,16 @@ p {
   }
 
   .skill-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 15px;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    padding: 0 4px !important;
   }
 
   .skill {
-    width: 100%;
-    max-width: 100%;
-    height: 240px;
-    margin-bottom: 20px;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 80px !important;
+    margin-bottom: 4px !important;
   }
 
   .circle {
@@ -1817,8 +1817,49 @@ p {
   }
 
   .skill p {
-    font-size: 0.9rem;
-    margin-top: 10px;
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  .skill-card {
+    padding: 4px 3px !important;
+  }
+
+  .skill-header {
+    margin-bottom: 2px !important;
+  }
+
+  .skill-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .skill-icon img {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .skill-name {
+    font-size: 0.6rem !important;
+  }
+
+  .skill-description {
+    font-size: 0.45rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.1 !important;
+  }
+
+  .skill-details {
+    margin-bottom: 2px !important;
+  }
+
+  .skill-level {
+    font-size: 0.45rem !important;
+  }
+
+  .skill-progress {
+    height: 2px !important;
+    margin-bottom: 2px !important;
   }
 
   .contact-container {
@@ -2192,6 +2233,57 @@ p {
     width: 38px;
     height: 38px;
     font-size: 0.95rem;
+  }
+
+  /* Ultra compact skills for very small screens */
+  .skill {
+    height: 130px;
+    margin-bottom: 6px;
+  }
+
+  .skill-card {
+    padding: 6px 4px;
+  }
+
+  .skill-header {
+    margin-bottom: 3px;
+  }
+
+  .skill-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .skill-icon img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+  }
+
+  .skill-description {
+    font-size: 0.55rem;
+    margin-bottom: 3px;
+    line-height: 1.1;
+  }
+
+  .skill-details {
+    margin-bottom: 2px;
+  }
+
+  .skill-level {
+    font-size: 0.5rem;
+  }
+
+  .skill-progress {
+    height: 2px;
+    margin-bottom: 2px;
+  }
+
+  .skill-percentage {
+    font-size: 0.55rem;
   }
 }
 
@@ -2710,6 +2802,57 @@ section {
   .notification-message {
     font-size: 13px !important;
   }
+
+  /* Compact skills for small mobile screens */
+  .skill {
+    height: 160px;
+    margin-bottom: 10px;
+  }
+
+  .skill-card {
+    padding: 10px 8px;
+  }
+
+  .skill-header {
+    margin-bottom: 6px;
+  }
+
+  .skill-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .skill-icon img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .skill-name {
+    font-size: 0.8rem;
+  }
+
+  .skill-description {
+    font-size: 0.65rem;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .skill-details {
+    margin-bottom: 4px;
+  }
+
+  .skill-level {
+    font-size: 0.6rem;
+  }
+
+  .skill-progress {
+    height: 3px;
+    margin-bottom: 4px;
+  }
+
+  .skill-percentage {
+    font-size: 0.65rem;
+  }
 }
 
 /* ========================================
@@ -3172,5 +3315,196 @@ section {
 @media (min-width: 769px) {
   .fab-container {
     display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skill {
+    height: 120px;
+    margin-bottom: 6px;
+  }
+  .skill-card {
+    padding: 6px 4px;
+  }
+  .skill-header {
+    margin-bottom: 2px;
+  }
+  .skill-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .skill-icon img {
+    width: 11px;
+    height: 11px;
+  }
+  .skill-name {
+    font-size: 0.7rem;
+  }
+  .skill-description {
+    font-size: 0.55rem;
+    margin-bottom: 2px;
+    line-height: 1.1;
+  }
+  .skill-details {
+    margin-bottom: 2px;
+  }
+  .skill-level {
+    font-size: 0.5rem;
+  }
+  .skill-progress {
+    height: 2px;
+    margin-bottom: 2px;
+  }
+  .skill-percentage {
+    font-size: 0.55rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .skill {
+    height: 100px;
+    margin-bottom: 4px;
+  }
+  .skill-card {
+    padding: 3px 2px;
+  }
+  .skill-header {
+    margin-bottom: 1px;
+  }
+  .skill-icon {
+    width: 13px;
+    height: 13px;
+  }
+  .skill-icon img {
+    width: 8px;
+    height: 8px;
+  }
+  .skill-name {
+    font-size: 0.6rem;
+  }
+  .skill-description {
+    font-size: 0.45rem;
+    margin-bottom: 1px;
+    line-height: 1.05;
+  }
+  .skill-details {
+    margin-bottom: 1px;
+  }
+  .skill-level {
+    font-size: 0.4rem;
+  }
+  .skill-progress {
+    height: 1px;
+    margin-bottom: 1px;
+  }
+  .skill-percentage {
+    font-size: 0.45rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skill-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 4px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .skill-container {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 0 2px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .skill-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+    padding: 0 8px !important;
+  }
+  .skill,
+  .skill-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border: 2px dashed red !important; /* DEBUG: Remove after confirming grid works */
+  }
+}
+@media screen and (max-width: 600px) {
+  .skill-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    padding: 0 4px !important;
+  }
+  .skill,
+  .skill-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border: 2px dashed red !important; /* DEBUG: Remove after confirming grid works */
+  }
+}
+@media screen and (max-width: 360px) {
+  .skill-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 0 2px !important;
+  }
+  .skill,
+  .skill-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border: 2px dashed red !important; /* DEBUG: Remove after confirming grid works */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .skill,
+  .skill-card {
+    height: 90px !important;
+    min-height: 0 !important;
+    padding: 6px 4px !important;
+    border: none !important;
+  }
+  .skill-header {
+    margin-bottom: 2px !important;
+  }
+  .skill-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .skill-icon img {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .skill-name {
+    font-size: 0.65rem !important;
+  }
+  .skill-description {
+    font-size: 0.5rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.1 !important;
+  }
+  .skill-details {
+    margin-bottom: 2px !important;
+  }
+  .skill-level {
+    font-size: 0.45rem !important;
+  }
+  .skill-progress {
+    height: 2px !important;
+    margin-bottom: 2px !important;
+  }
+  .skill-percentage {
+    font-size: 0.45rem !important;
   }
 }
