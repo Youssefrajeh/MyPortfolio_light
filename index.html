@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Youssef Rajeh</title>
+    <title>Youssef Rajeh - Portfolio</title>
     <meta
       name="description"
       content="Youssef Rajeh - Experienced Software Developer and Computer Programming student at Fanshawe College (GPA 3.9). Specializing in C++, Java, JavaScript, HTML, CSS, SQL. Former Chemistry professional with 15+ years experience. View my projects and hire me for your next software development project."
@@ -89,24 +89,6 @@
     />
 
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png"
-    />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#f05a28" />
     <meta name="msapplication-TileColor" content="#f05a28" />
@@ -205,20 +187,25 @@
   </head>
   <body>
     <div class="preloader">
-      <div class="loader"></div>
+      <!-- Removed Lottie loader container -->
     </div>
 
     <nav class="nav-container">
       <div class="nav-content">
-        <a
-          href="#home"
-          class="logo"
-          style="padding: 0; background: none; border: none"
-        >
-          <video class="logo-video-navbar" autoplay loop muted playsinline>
-            <source src="./logo/Y.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        <a href="#home" class="logo animated-logo">
+          <span class="letter" data-letter="Y">Y</span>
+          <span class="letter" data-letter="o">o</span>
+          <span class="letter" data-letter="u">u</span>
+          <span class="letter" data-letter="s">s</span>
+          <span class="letter" data-letter="s">s</span>
+          <span class="letter" data-letter="e">e</span>
+          <span class="letter" data-letter="f">f</span>
+          <span class="space"> </span>
+          <span class="letter" data-letter="R">R</span>
+          <span class="letter" data-letter="a">a</span>
+          <span class="letter" data-letter="j">j</span>
+          <span class="letter" data-letter="e">e</span>
+          <span class="letter" data-letter="h">h</span>
         </a>
         <div class="nav-links">
           <a href="#home" class="nav-link">Home</a>
@@ -272,11 +259,7 @@
       </button>
     </div>
 
-    <section
-      id="home"
-      class="hero"
-      style="background-image: url('images/hero-bg.jpg')"
-    >
+    <section id="home" class="hero">
       <div class="hero-content">
         <h1>Hi, I'm Youssef Rajeh</h1>
         <p class="typing-text" id="typed">Software Developer</p>
@@ -478,115 +461,379 @@
     </section>
 
     <section id="skills" class="skills">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Skills & Expertise</h2>
+
+      <!-- Skills Categories Filter -->
+      <div class="skills-categories">
+        <button class="category-filter active" data-category="all">
+          All Skills
+        </button>
+        <button class="category-filter" data-category="programming">
+          Programming
+        </button>
+        <button class="category-filter" data-category="web">Web Dev</button>
+        <button class="category-filter" data-category="database">
+          Database
+        </button>
+        <button class="category-filter" data-category="networking">
+          Networking
+        </button>
+      </div>
+
+      <!-- Skills Container -->
       <div class="skill-container">
-        <div class="skill" data-category="programming">
-          <div class="circle" data-percentage="90">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                alt="C++"
-              />
-              <span class="percentage-text">90%</span>
+        <!-- Programming Skills -->
+        <div
+          class="skill"
+          data-category="programming"
+          style="--percentage: 75%"
+        >
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                  alt="C++"
+                />
+              </div>
+              <h3 class="skill-name">C++</h3>
+            </div>
+
+            <p class="skill-description">
+              Learning object-oriented programming, data structures, and
+              algorithms through college coursework and personal projects.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Intermediate</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">75%</div>
             </div>
           </div>
-          <p>C++</p>
         </div>
-        <div class="skill" data-category="web">
-          <div class="circle" data-percentage="85">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                alt="HTML"
-              />
-              <span class="percentage-text">85%</span>
+
+        <div class="skill" data-category="web" style="--percentage: 80%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML"
+                />
+              </div>
+              <h3 class="skill-name">HTML5</h3>
+            </div>
+
+            <p class="skill-description">
+              Building responsive web pages and learning semantic HTML through
+              coursework and portfolio projects.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Intermediate</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">80%</div>
             </div>
           </div>
-          <p>HTML</p>
         </div>
-        <div class="skill" data-category="programming">
-          <div class="circle" data-percentage="80">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                alt="Java"
-              />
-              <span class="percentage-text">80%</span>
+
+        <div
+          class="skill"
+          data-category="programming"
+          style="--percentage: 70%"
+        >
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  alt="Java"
+                />
+              </div>
+              <h3 class="skill-name">Java</h3>
+            </div>
+
+            <p class="skill-description">
+              Learning object-oriented programming concepts and building console
+              applications through college assignments.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">70%</div>
             </div>
           </div>
-          <p>Java</p>
         </div>
-        <div class="skill" data-category="web">
-          <div class="circle" data-percentage="85">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                alt="CSS"
-              />
-              <span class="percentage-text">85%</span>
+
+        <div class="skill" data-category="web" style="--percentage: 75%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS"
+                />
+              </div>
+              <h3 class="skill-name">CSS3</h3>
+            </div>
+
+            <p class="skill-description">
+              Styling web pages with modern CSS, learning flexbox, grid, and
+              animations for responsive design.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Intermediate</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">75%</div>
             </div>
           </div>
-          <p>CSS</p>
         </div>
-        <div class="skill" data-category="database">
-          <div class="circle" data-percentage="75">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
-                alt="SQL"
-              />
-              <span class="percentage-text">75%</span>
+
+        <div class="skill" data-category="database" style="--percentage: 65%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"
+                  alt="SQL"
+                />
+              </div>
+              <h3 class="skill-name">MySQL</h3>
+            </div>
+
+            <p class="skill-description">
+              Learning database fundamentals, writing basic queries, and
+              understanding relational database concepts.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">65%</div>
             </div>
           </div>
-          <p>SQL</p>
         </div>
-        <div class="skill" data-category="programming">
-          <div class="circle" data-percentage="70">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-                alt="C#"
-              />
-              <span class="percentage-text">70%</span>
+
+        <div
+          class="skill"
+          data-category="programming"
+          style="--percentage: 60%"
+        >
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+                  alt="C#"
+                />
+              </div>
+              <h3 class="skill-name">C#</h3>
+            </div>
+
+            <p class="skill-description">
+              Introduction to .NET framework and basic C# programming concepts
+              through coursework exercises.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">60%</div>
             </div>
           </div>
-          <p>C#</p>
         </div>
-        <div class="skill" data-category="web">
-          <div class="circle" data-percentage="80">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                alt="JavaScript"
-              />
-              <span class="percentage-text">80%</span>
+
+        <div class="skill" data-category="web" style="--percentage: 70%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                />
+              </div>
+              <h3 class="skill-name">JavaScript</h3>
+            </div>
+
+            <p class="skill-description">
+              Learning DOM manipulation, event handling, and basic web
+              interactivity for portfolio projects.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Intermediate</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">70%</div>
             </div>
           </div>
-          <p>JavaScript</p>
         </div>
-        <div class="skill" data-category="programming">
-          <div class="circle" data-percentage="75">
-            <div class="inner-circle">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
-                alt="Kotlin"
-              />
-              <span class="percentage-text">75%</span>
+
+        <div
+          class="skill"
+          data-category="programming"
+          style="--percentage: 55%"
+        >
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                  alt="Kotlin"
+                />
+              </div>
+              <h3 class="skill-name">Kotlin</h3>
+            </div>
+
+            <p class="skill-description">
+              Exploring mobile app development basics and learning Kotlin syntax
+              for Android applications.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">55%</div>
             </div>
           </div>
-          <p>Kotlin</p>
         </div>
-        <div class="skill" data-category="networking">
-          <div class="circle" data-percentage="85">
-            <div class="inner-circle">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
-                alt="Cisco"
-              />
-              <span class="percentage-text">85%</span>
+
+        <div class="skill" data-category="networking" style="--percentage: 70%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
+                  alt="Cisco"
+                />
+              </div>
+              <h3 class="skill-name">Cisco Networking</h3>
+            </div>
+
+            <p class="skill-description">
+              Learning network fundamentals, routing protocols, and basic
+              network configuration through coursework.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Intermediate</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">70%</div>
             </div>
           </div>
-          <p>Cisco Networking</p>
+        </div>
+
+        <!-- Additional Skills -->
+        <div class="skill" data-category="web" style="--percentage: 50%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                />
+              </div>
+              <h3 class="skill-name">Node.js</h3>
+            </div>
+
+            <p class="skill-description">
+              Beginning to explore server-side JavaScript and basic backend
+              development concepts.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">50%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill" data-category="web" style="--percentage: 45%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
+                />
+              </div>
+              <h3 class="skill-name">React</h3>
+            </div>
+
+            <p class="skill-description">
+              Just started learning React components and JSX syntax for modern
+              web development.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">45%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill" data-category="database" style="--percentage: 40%">
+          <div class="skill-card">
+            <div class="skill-header">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                  alt="MongoDB"
+                />
+              </div>
+              <h3 class="skill-name">MongoDB</h3>
+            </div>
+
+            <p class="skill-description">
+              Introduction to NoSQL databases and basic document-based data
+              storage concepts.
+            </p>
+
+            <div class="skill-details">
+              <span class="skill-level">Beginner</span>
+            </div>
+
+            <div class="skill-progress">
+              <div class="progress-bar"></div>
+              <div class="skill-percentage">40%</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -605,252 +852,107 @@
       <div class="project-grid">
         <div class="project-card" data-category="cpp">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/NewsEmergencysign.jpg')"
-                ></div>
-              </span>
-            </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/NewsEmergencysign.jpg"
-                alt="Emergency Room Triage"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Emergency Room Triage</h3>
-              <p>
-                A C++ application implementing priority queue data structures to
-                efficiently manage emergency room patient triage based on
-                severity levels.
-              </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/Project-1_PriorityQueue"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/Project-1_PriorityQueue/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/Breast-cancer-awareness-month-Background-by-ojosujono96-scaled.webp"
+                  alt="Breast Cancer Decision Tree"
+                />
               </div>
+              <h3 class="project-title">Breast Cancer Decision Tree</h3>
+            </div>
+            <div class="project-card-back">
+              <p>
+                Machine learning project using decision trees to analyze breast
+                cancer data, featuring data preprocessing, model training, and
+                accuracy evaluation.
+              </p>
+              <a
+                href="https://github.com/Youssefrajeh/BreastCancerDecisionTree"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
 
         <div class="project-card" data-category="cpp">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="
-                    background-image: url('images/Breast-cancer-awareness-month-Background-by-ojosujono96-scaled.webp');
-                  "
-                ></div>
-              </span>
-            </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/Breast-cancer-awareness-month-Background-by-ojosujono96-scaled.webp"
-                alt="Breast Cancer Decision Tree"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Breast Cancer Decision Tree</h3>
-              <p>
-                Machine learning algorithm using decision trees to analyze
-                breast cancer data and provide diagnostic predictions with high
-                accuracy.
-              </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/BreastCancerDecisionTree"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/BreastCancerDecisionTree/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/N1-0921-Windows-CMD-Commands-You-Need-to-Know-blog-image-2.webp"
+                  alt="FileUsage Analyzer"
+                />
               </div>
+              <h3 class="project-title">FileUsage Analyzer</h3>
             </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="cpp">
-          <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="
-                    background-image: url('images/N1-0921-Windows-CMD-Commands-You-Need-to-Know-blog-image-2.webp');
-                  "
-                ></div>
-              </span>
-            </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/N1-0921-Windows-CMD-Commands-You-Need-to-Know-blog-image-2.webp"
-                alt="FileUsage Analyzer"
-              />
-            </div>
-            <div class="project-content">
-              <h3>FileUsage Analyzer</h3>
+            <div class="project-card-back">
               <p>
                 Command-line utility built in C++ to analyze file system usage,
                 providing detailed statistics and helping optimize storage
                 management.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/fileusage"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/fileusage/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/fileusage"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
 
         <div class="project-card" data-category="cpp">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="
-                    background-image: url('images/Benfords_law_frequencies.webp');
-                  "
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/Benfords_law_frequencies.webp"
+                  alt="Newcomb-Benford Statistics"
+                />
+              </div>
+              <h3 class="project-title">Newcomb-Benford Statistics</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/Benfords_law_frequencies.webp"
-                alt="Newcomb-Benford Statistics"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Newcomb-Benford Statistics</h3>
+            <div class="project-card-back">
               <p>
                 Statistical analysis tool implementing Benford's Law to detect
                 fraud and anomalies in numerical data sets using C++ algorithms.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/nbstats"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/nbstats/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/nbstats"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
 
         <div class="project-card" data-category="cpp">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="
-                    background-image: url('images/0205_Stork_scripting_language_Pt2_Lina_Newsletter___blog.png');
-                  "
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/0205_Stork_scripting_language_Pt2_Lina_Newsletter___blog.png"
+                  alt="Expression Evaluator"
+                />
+              </div>
+              <h3 class="project-title">Expression Evaluator</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/0205_Stork_scripting_language_Pt2_Lina_Newsletter___blog.png"
-                alt="Expression Evaluator"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Expression Evaluator</h3>
+            <div class="project-card-back">
               <p>
                 Mathematical expression parser and evaluator built in C++ using
                 advanced algorithms for handling complex mathematical
                 operations.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/Expression-Evaluator"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/Expression-Evaluator/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/Expression-Evaluator"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -858,45 +960,23 @@
         <!-- XO Game Project -->
         <div class="project-card" data-category="web">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/xo.png')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img src="images/xo.png" alt="XO Game" />
+              </div>
+              <h3 class="project-title">XO Game</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img src="images/xo.png" alt="XO Game" />
-            </div>
-            <div class="project-content">
-              <h3>XO Game</h3>
+            <div class="project-card-back">
               <p>
                 Interactive Tic-Tac-Toe game built with HTML, CSS, and
                 JavaScript featuring responsive design and smooth animations.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/XO"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/XO/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/XO"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -904,46 +984,24 @@
         <!-- Prayer Times Project -->
         <div class="project-card" data-category="web">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/prayertime.jpg')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img src="images/prayertime.jpg" alt="Prayer Times" />
+              </div>
+              <h3 class="project-title">Prayer Times</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img src="images/prayertime.jpg" alt="Prayer Times" />
-            </div>
-            <div class="project-content">
-              <h3>Prayer Times</h3>
+            <div class="project-card-back">
               <p>
                 Web application providing accurate prayer times based on
                 location with beautiful UI and real-time updates for Muslims
                 worldwide.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/prayertimes"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/prayertimes/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/Prayer-Times"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -951,45 +1009,23 @@
         <!-- Microwave Project -->
         <div class="project-card" data-category="java">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/microwave.jpg')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img src="images/microwave.jpg" alt="Microwave Simulator" />
+              </div>
+              <h3 class="project-title">Microwave Simulator</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img src="images/microwave.jpg" alt="Microwave Simulator" />
-            </div>
-            <div class="project-content">
-              <h3>Microwave Simulator</h3>
+            <div class="project-card-back">
               <p>
                 Java application simulating microwave oven functionality with
                 GUI, timer controls, and realistic cooking operations.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/Microwave"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/Microwave/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/Microwave"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -997,46 +1033,24 @@
         <!-- Android Assignment Project -->
         <div class="project-card" data-category="android">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/android.png')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img src="images/android.png" alt="Android Assignment" />
+              </div>
+              <h3 class="project-title">Android Assignment</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img src="images/android.png" alt="Android Assignment" />
-            </div>
-            <div class="project-content">
-              <h3>Android Assignment</h3>
+            <div class="project-card-back">
               <p>
                 Native Android application built with Kotlin featuring modern UI
                 components, user interactions, and following Android development
                 best practices.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/AndroidAssignment"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/AndroidAssignment/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/AndroidAssignment"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -1044,50 +1058,29 @@
         <!-- C# Grades Tracking System Project -->
         <div class="project-card" data-category="csharp">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/grades_tracking.png')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/grades_tracking.png"
+                  alt="Grades Tracking System"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="project-title">Grades Tracking System</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img
-                src="images/grades_tracking.png"
-                alt="Grades Tracking System"
-              />
-            </div>
-            <div class="project-content">
-              <h3>Grades Tracking System</h3>
+            <div class="project-card-back">
               <p>
                 JSON-based grade tracking system with C# console application
                 featuring data validation, course management, evaluation
                 tracking, and automated grade calculations with JSON schema
                 validation.
               </p>
-            </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/Grades-Tracking-System"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/Grades-Tracking-System/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
-              </div>
+              <a
+                href="https://github.com/Youssefrajeh/Grades-Tracking-System"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -1095,46 +1088,57 @@
         <!-- Full Stack Project -->
         <div class="project-card" data-category="fullstack">
           <div class="project-card-inner">
-            <div class="project-logo">
-              <span class="circle circle1"></span>
-              <span class="circle circle2"></span>
-              <span class="circle circle3"></span>
-              <span class="circle circle4">
-                <div
-                  class="project-icon"
-                  style="background-image: url('images/fullStack.png')"
-                ></div>
-              </span>
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="images/fullStack.png"
+                  alt="Full Stack Application"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="project-title">Full Stack Application</h3>
             </div>
-            <div class="project-glass"></div>
-            <div class="project-image">
-              <img src="images/fullStack.png" alt="Full Stack Application" />
-            </div>
-            <div class="project-content">
-              <h3>Full Stack Application</h3>
+            <div class="project-card-back">
               <p>
                 Complete full-stack web application featuring frontend and
                 backend integration, database management, user authentication,
                 and modern development practices.
               </p>
+              <a
+                href="https://github.com/Youssefrajeh/Full_Satck"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
-            <div class="project-bottom">
-              <div class="project-links">
-                <a
-                  href="https://github.com/Youssefrajeh/Full_Satck"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://github.com/Youssefrajeh/Full_Satck/blob/main/README.md"
-                  target="_blank"
-                  class="project-link"
-                >
-                  <i class="fas fa-info-circle"></i>
-                </a>
+          </div>
+        </div>
+
+        <!-- Student Loan Calculator Project -->
+        <div class="project-card" data-category="java">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  alt="Student Loan Calculator"
+                  loading="lazy"
+                />
               </div>
+              <h3 class="project-title">Student Loan Calculator</h3>
+            </div>
+            <div class="project-card-back">
+              <p>
+                Java application for managing student loans, calculating monthly
+                payments, and handling invalid input with custom exceptions.
+                Implements OOP, interfaces, and exception handling.
+              </p>
+              <a
+                href="https://github.com/Youssefrajeh/Student-Loan-Calculator"
+                target="_blank"
+                class="view-project-btn"
+                >View Project</a
+              >
             </div>
           </div>
         </div>
@@ -1236,6 +1240,10 @@
 
     <div class="scroll-top">
       <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div id="ai-assistant" class="ai-assistant">
+      <div class="ai-tooltip">Need help? Click me!</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>

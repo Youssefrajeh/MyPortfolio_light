@@ -1,10 +1,10 @@
 {
-  "name": "Youssef Rajeh - Software Developer Portfolio",
-  "short_name": "Youssef Portfolio",
-  "description": "Professional portfolio of Youssef Rajeh, Software Developer and Computer Programming student at Fanshawe College",
-  "start_url": "/",
+  "name": "Youssef Rajeh Portfolio",
+  "short_name": "Portfolio",
+  "description": "Professional portfolio of Youssef Rajeh.",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#0a192f",
+  "background_color": "#f05a28",
   "theme_color": "#f05a28",
   "orientation": "portrait-primary",
   "scope": "/",
@@ -13,29 +13,9 @@
   "categories": ["business", "education", "productivity"],
   "icons": [
     {
-      "src": "images/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "images/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "images/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
   "shortcuts": [
