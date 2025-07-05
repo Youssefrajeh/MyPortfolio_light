@@ -45,8 +45,7 @@
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
   --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
-  --hero-bg: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%),
-    url("images/hero-bg.jpg");
+  --hero-bg: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
 }
 
 html {
