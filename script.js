@@ -514,7 +514,7 @@ categoryBtns.forEach(btn => {
     });
 });
 
-// Contact Form Handling with Formspree
+// Contact Form Handling with Netlify Forms
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     console.log('Contact form found, adding event listener');
@@ -534,12 +534,18 @@ if (contactForm) {
             const formData = new FormData(contactForm);
             console.log('Form data created:', Array.from(formData.entries()));
             
-            const response = await fetch(contactForm.action, {
+            // Encode form data for Netlify
+            const data = new URLSearchParams();
+            for (const [key, value] of formData.entries()) {
+                data.append(key, value);
+            }
+            
+            const response = await fetch('/', {
                 method: 'POST',
-                body: formData,
                 headers: {
-                    'Accept': 'application/json'
-                }
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data.toString()
             });
             
             console.log('Response received:', response.status, response.statusText);
@@ -547,14 +553,11 @@ if (contactForm) {
             if (response.ok) {
                 // Show success message
                 console.log('Response is OK, showing success notification');
-                showNotification('Message sent successfully To Youssef! Thank you for reaching out.', 'success');
+                showNotification('Message sent successfully to Youssef! Thank you for reaching out.', 'success');
                 contactForm.reset();
             } else {
-                // Get error details from response
-                const errorData = await response.json().catch(() => ({}));
-                const errorMessage = errorData.error || `Server responded with status ${response.status}`;
-                console.log('Response not OK, error:', errorMessage);
-                throw new Error(errorMessage);
+                console.log('Response not OK, error:', response.statusText);
+                throw new Error(`Server responded with status ${response.status}`);
             }
         } catch (error) {
             console.error('Catch block - Error:', error);

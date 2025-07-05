@@ -1194,9 +1194,13 @@
         <form
           id="contact-form"
           class="contact-form"
-          action="https://formspree.io/f/mvgrongo"
+          name="contact"
           method="POST"
+          netlify
+          netlify-honeypot="bot-field"
         >
+          <!-- Hidden honeypot field for spam protection -->
+          <input type="hidden" name="bot-field" />
           <div class="form-group">
             <input
               type="text"
