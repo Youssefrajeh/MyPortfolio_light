@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation links (only for anchor links)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -36,10 +36,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             target.scrollIntoView({
                 behavior: 'smooth'
             });
-            // Close mobile menu if open
-            if (mobileNav && mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-            }
         }
     });
 });
@@ -127,20 +123,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile menu
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileNav = document.querySelector('.mobile-nav');
-const closeMenuBtn = document.querySelector('.close-menu');
 
-if (mobileMenuBtn && mobileNav && closeMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.add('active');
-    });
-
-    closeMenuBtn.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-    });
-}
 
 // Typed.js initialization
 document.addEventListener('DOMContentLoaded', () => {
@@ -825,3 +808,62 @@ function handleCardClick(e) {
 document.addEventListener('DOMContentLoaded', function() {
   initProjectCards();
 });
+
+// --- Floating Action Button Menu ---
+const fabButton = document.getElementById('fab-button');
+const fabMenu = document.querySelector('.fab-menu');
+const fabIcon = document.getElementById('fab-icon');
+
+function toggleFabMenu() {
+  fabButton.classList.toggle('active');
+  fabMenu.classList.toggle('active');
+  
+  // Change icon
+  if (fabButton.classList.contains('active')) {
+    fabIcon.className = 'fas fa-times';
+  } else {
+    fabIcon.className = 'fas fa-bars';
+  }
+}
+
+function closeFabMenu() {
+  fabButton.classList.remove('active');
+  fabMenu.classList.remove('active');
+  fabIcon.className = 'fas fa-bars';
+}
+
+if (fabButton && fabMenu) {
+  fabButton.addEventListener('click', toggleFabMenu);
+  
+  // Close menu when clicking on menu items (with delay for external links)
+  const fabItems = document.querySelectorAll('.fab-item');
+  fabItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      const href = item.getAttribute('href');
+      
+      // If it's an external link (not starting with #), add a small delay
+      if (href && !href.startsWith('#')) {
+        e.preventDefault();
+        setTimeout(() => {
+          window.location.href = href;
+        }, 100);
+      }
+      
+      closeFabMenu();
+    });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!fabButton.contains(e.target) && !fabMenu.contains(e.target)) {
+      closeFabMenu();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fabButton.classList.contains('active')) {
+      closeFabMenu();
+    }
+  });
+}
