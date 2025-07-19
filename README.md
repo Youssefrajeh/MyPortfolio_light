@@ -1,34 +1,58 @@
-# Library Backend
+# Youssef Rajeh - Portfolio Website
 
-A Node.js/Express backend for the library management system.
+A modern, responsive portfolio website showcasing my projects, skills, and professional experience.
 
-## Quick Start
+## 🌐 Live Website
 
-1. Install dependencies:
-```bash
-npm install
+Visit my portfolio at: [Your Portfolio URL]
+
+## ✨ Features
+
+- **Responsive Design** - Works perfectly on all devices
+- **Fast Loading** - Optimized static HTML/CSS/JS
+- **Project Showcase** - Interactive library of my work
+- **Professional Resume** - Downloadable PDF version
+- **Contact Integration** - Easy ways to get in touch
+
+## 🚀 Technologies Used
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Custom CSS with modern design principles
+- **Assets**: Optimized images and media
+- **Deployment**: Ready for Netlify, Vercel, or GitHub Pages
+
+## 📁 Project Structure
+
+```
+├── index.html          # Main portfolio page
+├── library.html        # Projects showcase
+├── styles.css          # Main stylesheet
+├── script.js           # Interactive functionality
+├── images/             # All portfolio images
+├── logo/               # Brand assets
+├── netlify.toml        # Deployment configuration
+└── manifest.json       # Web app manifest
 ```
 
-2. Set environment variables:
-```bash
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-NODE_ENV=production
-```
+## 🛠️ Local Development
 
-3. Start the server:
-```bash
-npm start
-```
+1. Clone this repository
+2. Open `index.html` in your browser
+3. Or serve locally:
+   ```bash
+   # Using Python 3
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx serve .
+   ```
 
-## API Endpoints
+## 📞 Contact
 
-- `GET /api/health` - Health check
-- `GET /api/test` - Test endpoint
+- **Email**: [Your Email]
+- **LinkedIn**: [Your LinkedIn]
+- **GitHub**: [Your GitHub]
 
-## Deployment
+---
 
-This backend is configured for Render deployment.
-
-**Start Command:** `npm start`
-**Build Command:** `npm install`
+© 2025 Youssef Rajeh. All rights reserved.
