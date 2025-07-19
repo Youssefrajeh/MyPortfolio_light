@@ -1,38 +1,8 @@
 services:
-  # Static Portfolio Site
-  - type: web
-    name: youssef-portfolio
-    env: static
-    plan: free
-    buildCommand: ""
-    staticPublishPath: .
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    headers:
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-XSS-Protection
-        value: "1; mode=block"
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /images/*
-        name: Cache-Control
-        value: "max-age=31536000"
-      - path: /*.css
-        name: Cache-Control
-        value: "max-age=31536000"
-      - path: /*.js
-        name: Cache-Control
-        value: "max-age=31536000"
-
-  # Backend API Service (optional)
+  # Backend API Service
   - type: web
     name: library-backend
+    runtime: node
     env: node
     plan: free
     buildCommand: npm install
@@ -41,4 +11,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000 
+        value: 10000
+    buildpacks:
+      - heroku/nodejs 
