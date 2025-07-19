@@ -260,8 +260,8 @@
         showRegisterLink.addEventListener("click", function (e) {
           e.preventDefault();
           showMessage(
-            "Registration feature is available in the full version with backend integration.",
-            "error"
+            "Registration feature will be available soon! We're working on bringing you the full library experience.",
+            "info"
           );
         });
 
@@ -272,9 +272,17 @@
           if (type === "error") {
             errorMessage.textContent = message;
             errorMessage.style.display = "block";
+          } else if (type === "info") {
+            // Use success message styling for info messages but with orange text
+            successMessage.textContent = message;
+            successMessage.style.display = "block";
+            successMessage.style.backgroundColor = "transparent";
+            successMessage.style.color = "#ff8c00";
           } else {
             successMessage.textContent = message;
             successMessage.style.display = "block";
+            successMessage.style.backgroundColor = "#2ecc71";
+            successMessage.style.color = "#fff";
           }
         }
 

@@ -184,6 +184,179 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Musical Logo Styles -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+
+      /* Force override ALL existing logo styles */
+      .nav-container .logo.musical-orchestra-logo,
+      .nav-container .logo.musical-orchestra-logo * {
+        color: inherit !important;
+        animation: inherit !important;
+        opacity: inherit !important;
+        transform: inherit !important;
+        transition: inherit !important;
+      }
+
+      .nav-container .logo.musical-orchestra-logo {
+        display: flex !important;
+        align-items: center !important;
+        height: 60px !important;
+        font-family: "Playfair Display", serif !important;
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
+      }
+
+      .nav-container .logo.musical-orchestra-logo .navbar-logo-text {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.1em !important;
+      }
+
+      /* Force each letter to have its own color and animation */
+      .nav-container .logo.musical-orchestra-logo span[style*="color"] {
+        color: inherit !important;
+        animation: inherit !important;
+        transform: inherit !important;
+        display: inline-block !important;
+        position: relative !important;
+      }
+
+      .navbar-space {
+        width: 0.3em;
+      }
+
+      /* Continuous floating animations for navbar */
+      @keyframes navbarDrumFloat {
+        0%,
+        100% {
+          transform: scale(1) rotateZ(0deg);
+        }
+        50% {
+          transform: scale(1.05) rotateZ(-1deg);
+          filter: drop-shadow(0 0 8px #ff6b6b);
+        }
+      }
+
+      @keyframes navbarViolinFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotateZ(0deg);
+        }
+        50% {
+          transform: translateY(-2px) rotateZ(1deg);
+          filter: drop-shadow(0 0 6px #4ecdc4);
+        }
+      }
+
+      @keyframes navbarPianoFloat {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-3px) scale(1.03);
+          filter: drop-shadow(0 0 8px #45b7d1);
+        }
+      }
+
+      @keyframes navbarTrumpetFloat {
+        0%,
+        100% {
+          transform: rotateY(0deg) scale(1);
+        }
+        50% {
+          transform: rotateY(2deg) scale(1.04);
+          filter: drop-shadow(0 0 7px #96ceb4);
+        }
+      }
+
+      @keyframes navbarFluteFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotateZ(0deg);
+        }
+        50% {
+          transform: translateY(-4px) rotateZ(2deg);
+          filter: drop-shadow(0 0 10px #ffeaa7);
+        }
+      }
+
+      @keyframes navbarHarpFloat {
+        0%,
+        100% {
+          transform: translate(0, 0) rotateZ(0deg) scale(1);
+        }
+        50% {
+          transform: translate(-1px, -3px) rotateZ(-2deg) scale(1.06);
+          filter: drop-shadow(0 0 12px #dda0dd);
+        }
+      }
+
+      @keyframes navbarGradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Navbar musical notes */
+      .navbar-note-particle {
+        position: absolute;
+        font-size: 0.6rem;
+        color: rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+        animation: navbarNoteFloat 1.5s ease-out forwards;
+        z-index: 1000;
+      }
+
+      @keyframes navbarNoteFloat {
+        0% {
+          opacity: 1;
+          transform: translateY(0) scale(1) rotateZ(0deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-40px) scale(0.3) rotateZ(180deg);
+        }
+      }
+
+      /* Hover effect */
+      .musical-orchestra-logo:hover .navbar-letter {
+        animation-duration: 0.8s !important;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-logo-text {
+          font-size: 1.4rem;
+          letter-spacing: 0.05em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .navbar-logo-text {
+          font-size: 1.2rem;
+          letter-spacing: 0.03em;
+        }
+      }
+
+      /* Simple bounce animation */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0) scale(1) rotateZ(0deg);
+          filter: brightness(1);
+        }
+        50% {
+          transform: translateY(-3px) scale(1.05) rotateZ(1deg);
+          filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="preloader">
@@ -1295,5 +1468,170 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
+
+    <!-- Musical Navbar Logo Script -->
+    <script>
+      function createNavbarMusicalNote(letter, noteType) {
+        const note = document.createElement("div");
+        note.className = "navbar-note-particle";
+        note.textContent = noteType;
+
+        // Position relative to the letter
+        const rect = letter.getBoundingClientRect();
+        note.style.position = "fixed";
+        note.style.left = rect.left + rect.width / 2 + "px";
+        note.style.top = rect.top + rect.height / 2 + "px";
+
+        document.body.appendChild(note);
+
+        // Remove after animation
+        setTimeout(() => {
+          if (note.parentNode) {
+            note.parentNode.removeChild(note);
+          }
+        }, 1500);
+      }
+
+      function initNavbarOrchestra() {
+        console.log("Initializing navbar orchestra...");
+        const navbarLogoText = document.getElementById("navbarLogoText");
+        console.log("Found navbar logo element:", navbarLogoText);
+        if (!navbarLogoText) {
+          console.log("Navbar logo element not found!");
+          return;
+        }
+
+        const text = "YOUSSEF RAJEH";
+        navbarLogoText.innerHTML = "";
+        navbarLogoText.style.display = "flex";
+        navbarLogoText.style.alignItems = "center";
+        navbarLogoText.style.gap = "0.02em";
+
+        // Compact navbar orchestra sections
+        const navbarInstruments = [
+          {
+            note: "🥁",
+            color: "#ff6b6b",
+            float: "navbarDrumFloat",
+            duration: "2.0s",
+          },
+          {
+            note: "🎻",
+            color: "#4ecdc4",
+            float: "navbarViolinFloat",
+            duration: "2.3s",
+          },
+          {
+            note: "🎹",
+            color: "#45b7d1",
+            float: "navbarPianoFloat",
+            duration: "1.8s",
+          },
+          {
+            note: "🎺",
+            color: "#96ceb4",
+            float: "navbarTrumpetFloat",
+            duration: "2.1s",
+          },
+          {
+            note: "🎵",
+            color: "#ffeaa7",
+            float: "navbarFluteFloat",
+            duration: "1.9s",
+          },
+          {
+            note: "✨",
+            color: "#dda0dd",
+            float: "navbarHarpFloat",
+            duration: "2.4s",
+          },
+        ];
+
+        let letterIndex = 0;
+
+        text.split("").forEach((char, index) => {
+          const span = document.createElement("span");
+
+          if (char === " ") {
+            span.className = "navbar-space";
+            span.style.width = "0.3em";
+          } else {
+            span.className = "navbar-letter";
+            span.textContent = char;
+
+            // Assign instrument to letter
+            const instrument =
+              navbarInstruments[letterIndex % navbarInstruments.length];
+
+            // Apply all styles directly via JavaScript to ensure they work
+            span.style.display = "inline-block";
+            span.style.color = "transparent";
+            span.style.background = `linear-gradient(45deg, ${instrument.color}, #ffffff, ${instrument.color})`;
+            span.style.backgroundSize = "300% 300%";
+            span.style.webkitBackgroundClip = "text";
+            span.style.backgroundClip = "text";
+            span.style.position = "relative";
+            span.style.transformStyle = "preserve-3d";
+            span.style.transition = "all 0.3s ease";
+            span.style.opacity = "1";
+            span.style.fontSize = "1.5rem";
+            span.style.fontWeight = "900";
+            span.style.fontFamily = "'Playfair Display', serif";
+
+            // Start continuous floating animation
+            span.style.animation = `${instrument.float} ${instrument.duration} ease-in-out infinite, navbarGradientShift 3s ease-in-out infinite`;
+            span.style.animationDelay = `${letterIndex * 0.1}s, 0s`;
+
+            // Periodic musical notes (subtle for navbar)
+            setTimeout(() => {
+              setInterval(() => {
+                if (Math.random() > 0.85) {
+                  createNavbarMusicalNote(span, instrument.note);
+                }
+              }, 4000 + letterIndex * 800);
+            }, 1000);
+
+            letterIndex++;
+          }
+
+          navbarLogoText.appendChild(span);
+        });
+
+        console.log(
+          "Navbar orchestra initialized with",
+          letterIndex,
+          "letters"
+        );
+      }
+
+      // Initialize navbar orchestra when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit longer to ensure all other scripts have loaded
+        setTimeout(initNavbarOrchestra, 500);
+      });
+
+      // Also try when window fully loads
+      window.addEventListener("load", function () {
+        setTimeout(initNavbarOrchestra, 200);
+      });
+
+      // Re-initialize if the navbar is rebuilt (for dynamic content)
+      const navbarObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList") {
+            const navbarLogoText = document.getElementById("navbarLogoText");
+            if (navbarLogoText && navbarLogoText.children.length === 0) {
+              setTimeout(initNavbarOrchestra, 100);
+            }
+          }
+        });
+      });
+
+      if (document.getElementById("navbarLogoText")) {
+        navbarObserver.observe(document.getElementById("navbarLogoText"), {
+          childList: true,
+        });
+      }
+    </script>
   </body>
 </html>
