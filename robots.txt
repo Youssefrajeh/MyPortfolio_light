@@ -2,20 +2,32 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://youssefrajeh.github.io/MyWebsite/sitemap.xml
+Sitemap: https://youssefrajeh.com/sitemap.xml
 
-# Crawl-delay for polite crawling
+# Crawl-delay for politeness
 Crawl-delay: 1
 
-# Block access to certain files
-Disallow: /node_modules/
-Disallow: /.git/
-Disallow: /package.json
-Disallow: /package-lock.json
-
-# Allow all important resources
+# Allow specific files that are important for SEO
+Allow: /images/
 Allow: /styles.css
 Allow: /script.js
-Allow: /images/
-Allow: /videos/
-Allow: /*.pdf 
+Allow: /*.pdf$
+
+# Block potentially sensitive directories
+Disallow: /netlify/
+Disallow: /pdf/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Social media and search engine specific directives
+User-agent: facebookexternalhit/
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: / 
