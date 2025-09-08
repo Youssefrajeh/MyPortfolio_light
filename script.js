@@ -517,22 +517,18 @@ categoryBtns.forEach(btn => {
 // Contact Form Handling with Netlify Forms
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-    console.log('Contact form found, adding event listener');
     
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        console.log('Form submitted, preventing default');
 
         // Show loading state
         const submitBtn = contactForm.querySelector('.submit-btn');
         const originalBtnText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
-        console.log('Button state changed to loading');
 
         try {
             const formData = new FormData(contactForm);
-            console.log('Form data created:', Array.from(formData.entries()));
             
             // Encode form data for Netlify
             const data = new URLSearchParams();
@@ -717,8 +713,6 @@ window.testNotification = testNotification;
 
 // Check if notification styles are loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, running checks...');
-    
     // Test if notification CSS exists
     const testNotification = document.createElement('div');
     testNotification.className = 'notification';
@@ -727,16 +721,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(testNotification);
     
     const computedStyle = window.getComputedStyle(testNotification);
-    console.log('Notification CSS check - position:', computedStyle.position);
-    console.log('Notification CSS check - z-index:', computedStyle.zIndex);
     
     document.body.removeChild(testNotification);
     
     // Check if contact form exists
     const form = document.getElementById('contact-form');
-    console.log('Contact form exists:', !!form);
     if (form) {
-        console.log('Form action:', form.action);
     }
 });
 
