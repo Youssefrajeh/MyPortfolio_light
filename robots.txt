@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://youssefrajeh.com/sitemap.xml
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Allow specific files that are important for SEO
+Allow: /images/
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.pdf$
+
+# Block potentially sensitive directories
+Disallow: /netlify/
+Disallow: /pdf/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Social media and search engine specific directives
+User-agent: facebookexternalhit/
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: / 

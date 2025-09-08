@@ -1,0 +1,44 @@
+{
+  "name": "Youssef Rajeh Portfolio",
+  "short_name": "Portfolio",
+  "description": "Professional portfolio of Youssef Rajeh.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f05a28",
+  "theme_color": "#f05a28",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "education", "productivity"],
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "View my software development projects",
+      "url": "/#projects",
+      "icons": [{ "src": "images/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact Me",
+      "short_name": "Contact",
+      "description": "Get in touch for opportunities",
+      "url": "/#contact",
+      "icons": [{ "src": "images/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Download CV",
+      "short_name": "CV",
+      "description": "Download my resume/CV",
+      "url": "/Youssef%20Rajeh.pdf",
+      "icons": [{ "src": "images/favicon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+} 
