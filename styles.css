@@ -1177,9 +1177,9 @@ p {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1100px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
   width: 100%;
   padding: 0 20px;
@@ -1191,8 +1191,8 @@ p {
 /* 3D Project Card Styles */
 .project-card {
   width: 100%;
-  max-width: 320px;
-  height: 300px;
+  max-width: 280px;
+  height: 260px;
   margin: 0 auto;
   transform: translateY(50px);
   opacity: 0;
@@ -1277,7 +1277,7 @@ p {
 
 .project-image {
   position: relative;
-  height: 180px;
+  height: 150px;
   overflow: hidden;
   border-radius: 16px 16px 0 0;
 }
@@ -1307,20 +1307,20 @@ p {
 }
 
 .project-content {
-  padding: 15px 18px 12px 18px;
-  height: calc(100% - 180px);
+  padding: 12px 15px 10px 15px;
+  height: calc(100% - 150px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .project-content h3 {
   color: #2c3e50;
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
   text-align: center;
   line-height: 1.3;
 }
@@ -1573,6 +1573,21 @@ p {
   color: var(--primary-color);
 }
 
+/* Mobile contact icons */
+@media (max-width: 768px) {
+  .contact-item i {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-item i {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+}
+
 .contact-item a {
   color: var(--text-muted);
   text-decoration: none;
@@ -1605,6 +1620,19 @@ p {
   transition: var(--transition);
 }
 
+/* Mobile social icons */
+@media (max-width: 768px) {
+  .social-links a {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links a {
+    font-size: 1.6rem;
+  }
+}
+
 .social-links a:hover {
   color: var(--primary-color);
   transform: translateY(-3px);
@@ -1633,6 +1661,27 @@ p {
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 1000;
+}
+
+/* Mobile scroll-to-top button */
+@media (max-width: 768px) {
+  .scroll-top {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-top {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    bottom: 15px;
+    right: 15px;
+  }
 }
 
 .scroll-top.active {
@@ -1907,6 +1956,9 @@ p {
 
   .skill-card {
     padding: 4px 3px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
 
   .skill-header {
@@ -1914,23 +1966,26 @@ p {
   }
 
   .skill-icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .skill-icon img {
     width: 16px !important;
     height: 16px !important;
   }
 
-  .skill-icon img {
-    width: 10px !important;
-    height: 10px !important;
-  }
-
   .skill-name {
     font-size: 0.6rem !important;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
   }
 
   .skill-description {
     font-size: 0.45rem !important;
     margin-bottom: 2px !important;
     line-height: 1.1 !important;
+    color: #374151 !important;
   }
 
   .skill-details {
@@ -1939,6 +1994,8 @@ p {
 
   .skill-level {
     font-size: 0.45rem !important;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
   }
 
   .skill-progress {
@@ -1980,7 +2037,7 @@ p {
   .project-card {
     width: 100%;
     margin: 10px auto;
-    height: 220px;
+    height: 200px;
     perspective: 600px;
   }
 
@@ -2007,7 +2064,7 @@ p {
   }
 
   .project-image {
-    height: 90px;
+    height: 80px;
   }
 
   .project-content h3 {
@@ -2168,18 +2225,18 @@ p {
   .project-card {
     max-width: 100%;
     height: auto;
-    min-height: 380px;
+    min-height: 320px;
   }
 
   .project-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
     padding: 0 10px;
   }
 
   .project-card-inner {
     height: auto;
-    min-height: 380px;
+    min-height: 320px;
   }
 
   .project-content {
@@ -2204,7 +2261,7 @@ p {
   }
 
   .project-image {
-    height: 180px;
+    height: 150px;
   }
 
   .project-logo {
@@ -2235,11 +2292,11 @@ p {
 /* Small mobile devices (320px - 480px) */
 @media screen and (max-width: 480px) {
   .project-card {
-    min-height: 360px;
+    min-height: 300px;
   }
 
   .project-card-inner {
-    min-height: 360px;
+    min-height: 300px;
   }
 
   .project-content {
@@ -2259,7 +2316,7 @@ p {
   }
 
   .project-image {
-    height: 160px;
+    height: 130px;
   }
 
   .project-logo {
@@ -2282,11 +2339,11 @@ p {
 /* Very small screens (under 360px) */
 @media screen and (max-width: 360px) {
   .project-card {
-    min-height: 340px;
+    min-height: 280px;
   }
 
   .project-card-inner {
-    min-height: 340px;
+    min-height: 280px;
   }
 
   .project-content {
@@ -2306,7 +2363,7 @@ p {
   }
 
   .project-image {
-    height: 140px;
+    height: 120px;
   }
 
   .project-bottom {
@@ -3104,6 +3161,19 @@ section {
   vertical-align: middle;
 }
 
+/* Mobile hamburger icon */
+@media (max-width: 768px) {
+  .hamburger i {
+    font-size: 2.2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburger i {
+    font-size: 2rem !important;
+  }
+}
+
 /* --- Mobile Menu Overlay --- */
 .mobile-menu-overlay {
   display: none;
@@ -3292,6 +3362,12 @@ section {
   position: relative;
 }
 
+.fab-item svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
 .fab-item:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
@@ -3359,6 +3435,23 @@ section {
   .fab-container {
     display: block;
   }
+
+  .fab-item {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+
+  .fab-item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .fab-button {
+    width: 65px;
+    height: 65px;
+    font-size: 1.6rem;
+  }
 }
 
 @media (min-width: 769px) {
@@ -3374,32 +3467,40 @@ section {
   }
   .skill-card {
     padding: 6px 4px;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
   .skill-header {
     margin-bottom: 2px;
   }
   .skill-icon {
-    width: 18px;
-    height: 18px;
+    width: 28px;
+    height: 28px;
   }
   .skill-icon img {
-    width: 11px;
-    height: 11px;
+    width: 18px;
+    height: 18px;
   }
 
   .skill-name {
     font-size: 0.7rem;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
   }
   .skill-description {
     font-size: 0.55rem;
     margin-bottom: 2px;
     line-height: 1.1;
+    color: #374151 !important;
   }
   .skill-details {
     margin-bottom: 2px;
   }
   .skill-level {
     font-size: 0.5rem;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
   }
   .skill-progress {
     height: 2px;
@@ -3417,32 +3518,40 @@ section {
   }
   .skill-card {
     padding: 3px 2px;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
   .skill-header {
     margin-bottom: 1px;
   }
   .skill-icon {
-    width: 13px;
-    height: 13px;
+    width: 22px;
+    height: 22px;
   }
   .skill-icon img {
-    width: 8px;
-    height: 8px;
+    width: 14px;
+    height: 14px;
   }
 
   .skill-name {
     font-size: 0.6rem;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
   }
   .skill-description {
     font-size: 0.45rem;
     margin-bottom: 1px;
     line-height: 1.05;
+    color: #374151 !important;
   }
   .skill-details {
     margin-bottom: 1px;
   }
   .skill-level {
     font-size: 0.4rem;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
   }
   .skill-progress {
     height: 1px;
@@ -3521,32 +3630,39 @@ section {
     height: 90px !important;
     min-height: 0 !important;
     padding: 6px 4px !important;
-    border: none !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
   .skill-header {
     margin-bottom: 2px !important;
   }
   .skill-icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
   .skill-icon img {
-    width: 10px !important;
-    height: 10px !important;
+    width: 14px !important;
+    height: 14px !important;
   }
   .skill-name {
     font-size: 0.65rem !important;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
   }
   .skill-description {
     font-size: 0.5rem !important;
     margin-bottom: 2px !important;
     line-height: 1.1 !important;
+    color: #374151 !important;
   }
   .skill-details {
     margin-bottom: 2px !important;
   }
   .skill-level {
     font-size: 0.45rem !important;
+    color: #6b7280 !important;
+    font-weight: 600 !important;
   }
   .skill-progress {
     height: 2px !important;
@@ -3554,6 +3670,54 @@ section {
   }
   .skill-percentage {
     font-size: 0.45rem !important;
+  }
+}
+
+/* General mobile icon improvements */
+@media (max-width: 768px) {
+  /* Ensure all icons have proper touch targets */
+  .nav-link,
+  .fab-item,
+  .contact-item,
+  .social-links a,
+  .scroll-top {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve icon visibility with better contrast */
+  .skill-icon {
+    border-width: 2px;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  }
+
+  .fab-item {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .contact-item i {
+    text-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Mobile-specific skill card interactions */
+  .skill:active .skill-card,
+  .skill-card:active {
+    transform: scale(0.98) !important;
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+  }
+
+  .skill:active .skill-name {
+    color: #1e40af !important;
+  }
+
+  .skill:active .skill-description {
+    color: #1f2937 !important;
+  }
+
+  .skill:active .skill-level {
+    color: #4b5563 !important;
   }
 }
 

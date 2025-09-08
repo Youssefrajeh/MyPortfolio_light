@@ -11,9 +11,9 @@
     />
     <style>
       body {
-        background: #181c24;
-        color: #fff;
-        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        color: #1f2937;
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
         margin: 0;
         padding: 0;
         min-height: 100vh;
@@ -24,122 +24,385 @@
       .nav-container {
         position: fixed;
         top: 0;
-        left: 0;
-        right: 0;
-        background: #23283a;
-        padding: 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        z-index: 100;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: none;
+        padding: 15px 0;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1),
+          0 15px 35px rgba(0, 0, 0, 0.05);
       }
+
+      .nav-container.scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px) saturate(200%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
       .nav-content {
-        max-width: 1100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
         margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-container .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        height: 64px;
       }
+
       .nav-links {
         display: flex;
-        gap: 36px;
+        gap: 30px;
+        margin-left: auto;
       }
+
       .nav-link {
-        color: #bfc7d5;
+        color: #374151;
         text-decoration: none;
-        font-size: 1.08rem;
         font-weight: 500;
-        transition: color 0.2s;
-        padding: 0 2px;
+        position: relative;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        letter-spacing: 0;
+        border-radius: 4px;
+        background: transparent;
+        overflow: hidden;
       }
-      .nav-link.active,
+
+      .nav-link::before,
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #6366f1;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link::after {
+        bottom: -2px;
+        background: #fbbf24;
+      }
+
       .nav-link:hover {
-        color: #f05a28;
+        color: #6366f1;
+        transform: translateY(-2px);
+        letter-spacing: 1px;
+        background: rgba(99, 102, 241, 0.1);
+      }
+
+      .nav-link:hover::before,
+      .nav-link:hover::after {
+        width: 80%;
+      }
+
+      .nav-link::before {
+        box-shadow: 0 0 10px #6366f1;
+      }
+
+      .nav-link:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(20, 20);
+          opacity: 0;
+        }
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 5px;
+        margin-left: 20px;
+      }
+
+      .hamburger:hover {
+        color: #6366f1;
+        transform: rotate(90deg);
+      }
+
+      .hamburger i {
+        color: #333 !important;
+        font-size: 2rem !important;
+        display: inline-block !important;
+        vertical-align: middle;
+      }
+
+      /* Mobile Navigation Overlay */
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85vw;
+        max-width: 400px;
+        height: 100vh;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        color: #1f2937;
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid rgba(99, 102, 241, 0.2);
+      }
+
+      .mobile-nav.active {
+        right: 0;
+      }
+
+      .mobile-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+
+      .mobile-nav-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #6366f1;
+      }
+
+      .close-menu {
+        background: none;
+        border: none;
+        color: #1f2937;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .close-menu:hover {
+        color: #6366f1;
+        transform: rotate(90deg);
+      }
+
+      .mobile-nav .nav-link {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: opacity 0.3s, transform 0.3s;
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        color: #1f2937;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        padding-bottom: 0.5rem;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: transparent;
+      }
+
+      .mobile-nav.active .nav-link {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .mobile-nav .nav-link:nth-child(2) {
+        transition-delay: 0.05s;
+      }
+      .mobile-nav .nav-link:nth-child(3) {
+        transition-delay: 0.1s;
+      }
+      .mobile-nav .nav-link:nth-child(4) {
+        transition-delay: 0.15s;
+      }
+      .mobile-nav .nav-link:nth-child(5) {
+        transition-delay: 0.2s;
+      }
+      .mobile-nav .nav-link:nth-child(6) {
+        transition-delay: 0.25s;
+      }
+      .mobile-nav .nav-link:nth-child(7) {
+        transition-delay: 0.3s;
+      }
+      .mobile-nav .nav-link:nth-child(8) {
+        transition-delay: 0.35s;
+      }
+
+      .mobile-nav .nav-link:hover {
+        color: #6366f1;
+        background: rgba(99, 102, 241, 0.1);
+        transform: translateX(5px);
       }
       .login-container {
-        background: #23283a;
-        border: 1px solid #353b4b;
-        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        border-radius: 20px;
         padding: 40px;
         width: 100%;
         max-width: 400px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(0);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .login-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
       }
       .login-header {
         text-align: center;
         margin-bottom: 32px;
       }
       .login-header h1 {
-        color: #f05a28;
+        color: #6366f1;
         font-size: 2.2rem;
         margin-bottom: 8px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1 0%, #f472b6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       .login-header p {
-        color: #bfc7d5;
+        color: #6b7280;
         font-size: 1rem;
+        font-weight: 500;
       }
       .form-group {
         margin-bottom: 20px;
       }
       .form-group label {
         display: block;
-        color: #bfc7d5;
+        color: #374151;
         margin-bottom: 8px;
-        font-weight: 500;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
       .form-group input {
         width: 100%;
-        padding: 12px 16px;
-        border: 1px solid #353b4b;
-        border-radius: 8px;
-        background: #181c24;
-        color: #fff;
+        padding: 14px 16px;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        background: #ffffff;
+        color: #1f2937;
         font-size: 1rem;
-        transition: border-color 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-sizing: border-box;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       }
       .form-group input:focus {
         outline: none;
-        border-color: #f05a28;
+        border-color: #6366f1;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        transform: translateY(-1px);
       }
       .login-btn {
         width: 100%;
-        padding: 14px;
-        background: #f05a28;
+        padding: 16px;
+        background: linear-gradient(135deg, #6366f1 0%, #f472b6 100%);
         color: #fff;
         border: none;
-        border-radius: 8px;
+        border-radius: 12px;
         font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
-        transition: background 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         margin-bottom: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
       }
       .login-btn:hover {
-        background: #d04a1f;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .login-btn:active {
+        transform: translateY(0);
       }
       .register-link {
         text-align: center;
-        color: #bfc7d5;
+        color: #6b7280;
       }
       .register-link a {
-        color: #f05a28;
+        color: #6366f1;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 4px 8px;
+        border-radius: 6px;
       }
       .register-link a:hover {
-        text-decoration: underline;
+        background: rgba(99, 102, 241, 0.1);
+        transform: translateY(-1px);
       }
       .error-message {
-        color: #ff6b6b;
+        color: #ef4444;
         text-align: center;
         margin-bottom: 16px;
         display: none;
+        background: rgba(239, 68, 68, 0.1);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        font-weight: 500;
       }
       .success-message {
-        color: #51cf66;
+        color: #34d399;
         text-align: center;
         margin-bottom: 16px;
         display: none;
+        background: rgba(52, 211, 153, 0.1);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        font-weight: 500;
       }
 
       /* Password toggle styles */
@@ -160,25 +423,300 @@
         transform: translateY(-50%);
         background: none;
         border: none;
-        color: #bfc7d5;
+        color: #6b7280;
         cursor: pointer;
-        padding: 5px;
+        padding: 8px;
         font-size: 1rem;
-        transition: color 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 6px;
       }
 
       .password-toggle:hover {
-        color: #f05a28;
+        color: #6366f1;
+        background: rgba(99, 102, 241, 0.1);
+        transform: translateY(-50%) scale(1.1);
       }
 
       .password-toggle.show-password {
-        color: #f05a28;
+        color: #6366f1;
+        background: rgba(99, 102, 241, 0.1);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: block;
+          position: relative;
+          z-index: 1100;
+        }
+
+        .login-container {
+          margin: 20px;
+          padding: 30px 25px;
+          max-width: calc(100% - 40px);
+        }
+
+        .login-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .form-group input {
+          padding: 12px 14px;
+          font-size: 0.95rem;
+        }
+
+        .login-btn {
+          padding: 14px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .mobile-nav,
+        .mobile-menu-overlay {
+          display: none !important;
+        }
+      }
+
+      /* --- Floating Action Button Menu --- */
+      .fab-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .fab-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #f472b6);
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+        z-index: 1002;
+      }
+
+      .fab-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+      }
+
+      .fab-button.active {
+        transform: rotate(45deg);
+        background: linear-gradient(135deg, #ef4444, #f59e42);
+      }
+
+      .fab-menu {
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.8) translateY(20px);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .fab-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1) translateY(0);
+      }
+
+      .fab-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .fab-item svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .fab-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Colorful FAB items with meaningful colors */
+      .fab-home {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        color: white;
+      }
+      .fab-home:hover {
+        background: linear-gradient(135deg, #ff5252, #d63031);
+      }
+
+      .fab-about {
+        background: linear-gradient(135deg, #4ecdc4, #00b894);
+        color: white;
+      }
+      .fab-about:hover {
+        background: linear-gradient(135deg, #00cec9, #00a085);
+      }
+
+      .fab-experience {
+        background: linear-gradient(135deg, #fdcb6e, #e17055);
+        color: white;
+      }
+      .fab-experience:hover {
+        background: linear-gradient(135deg, #fdcb6e, #d63031);
+      }
+
+      .fab-skills {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        color: white;
+      }
+      .fab-skills:hover {
+        background: linear-gradient(135deg, #5f3dc4, #845ef7);
+      }
+
+      .fab-projects {
+        background: linear-gradient(135deg, #fd79a8, #e84393);
+        color: white;
+      }
+      .fab-projects:hover {
+        background: linear-gradient(135deg, #f783ac, #e91e63);
+      }
+
+      .fab-contact {
+        background: linear-gradient(135deg, #74b9ff, #0984e3);
+        color: white;
+      }
+      .fab-contact:hover {
+        background: linear-gradient(135deg, #5dade2, #3498db);
+      }
+
+      .fab-library {
+        background: linear-gradient(135deg, #a8e6cf, #2ecc71);
+        color: white;
+      }
+      .fab-library:hover {
+        background: linear-gradient(135deg, #87d37c, #27ae60);
+      }
+
+      .fab-library.active {
+        background: linear-gradient(135deg, #6366f1, #f472b6);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      }
+
+      /* Show FAB only on mobile */
+      @media (max-width: 768px) {
+        .fab-container {
+          display: block;
+        }
+
+        .fab-item {
+          width: 55px;
+          height: 55px;
+          font-size: 1.3rem;
+        }
+
+        .fab-item svg {
+          width: 22px;
+          height: 22px;
+        }
+
+        .fab-button {
+          width: 65px;
+          height: 65px;
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .fab-container {
+          display: none !important;
+        }
+      }
+
+      /* FAB icon labels for mobile */
+      .fab-icon-label {
+        display: none;
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%) translateX(-8px);
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 500;
+        padding: 2px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
+        opacity: 0.95;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+
+      @media (max-width: 600px) {
+        .fab-item {
+          position: relative;
+        }
+        .fab-icon-label {
+          display: block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-links {
+          gap: 15px;
+        }
+
+        .nav-link {
+          font-size: 0.9rem;
+          padding: 5px 10px;
+        }
+
+        .login-container {
+          margin: 15px;
+          padding: 25px 20px;
+          max-width: calc(100% - 30px);
+        }
+
+        .login-header h1 {
+          font-size: 1.6rem;
+        }
+
+        .login-header p {
+          font-size: 0.9rem;
+        }
       }
     </style>
   </head>
   <body>
     <nav class="nav-container">
       <div class="nav-content">
+        <a href="index.html" class="logo" id="navbarLogoText">Youssef Rajeh</a>
         <div class="nav-links">
           <a href="index.html#home" class="nav-link">Home</a>
           <a href="index.html#about" class="nav-link">About</a>
@@ -194,8 +732,39 @@
             >Transcript</a
           >
         </div>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-header">
+        <div class="mobile-nav-logo" id="mobileNavbarLogoText">
+          Youssef Rajeh
+        </div>
+        <button class="close-menu" id="closeMenu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <a href="index.html#home" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="index.html#experience" class="nav-link">Experience</a>
+      <a href="index.html#skills" class="nav-link">Skills</a>
+      <a href="index.html#projects" class="nav-link">Projects</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+      <a href="library.html" class="nav-link active">Library</a>
+      <a
+        href="Rajeh_Youssef_1196323_2025_08_07.pdf"
+        class="nav-link"
+        target="_blank"
+        >Transcript</a
+      >
+    </div>
 
     <div class="login-container">
       <div class="login-header">
@@ -232,15 +801,106 @@
       </div>
     </div>
 
+    <!-- Floating Action Button Menu -->
+    <div class="fab-container">
+      <div class="fab-menu" id="fabMenu">
+        <a href="index.html#home" class="fab-item fab-home" title="Home">
+          <svg viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+          </svg>
+          <span class="fab-icon-label">Home</span>
+        </a>
+        <a href="index.html#about" class="fab-item fab-about" title="About">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+          <span class="fab-icon-label">About</span>
+        </a>
+        <a
+          href="index.html#experience"
+          class="fab-item fab-experience"
+          title="Experience"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 6h-2l-2-2H8L6 6H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"
+            />
+          </svg>
+          <span class="fab-icon-label">Experience</span>
+        </a>
+        <a href="index.html#skills" class="fab-item fab-skills" title="Skills">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <span class="fab-icon-label">Skills</span>
+        </a>
+        <a
+          href="index.html#projects"
+          class="fab-item fab-projects"
+          title="Projects"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+          <span class="fab-icon-label">Projects</span>
+        </a>
+        <a
+          href="index.html#contact"
+          class="fab-item fab-contact"
+          title="Contact"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+            />
+          </svg>
+          <span class="fab-icon-label">Contact</span>
+        </a>
+        <a
+          href="library.html"
+          class="fab-item fab-library active"
+          title="Library"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
+            />
+          </svg>
+          <span class="fab-icon-label">Library</span>
+        </a>
+      </div>
+      <button class="fab-button" id="fabButton">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const loginForm = document.getElementById("loginForm");
         const showRegisterLink = document.getElementById("showRegister");
         const errorMessage = document.getElementById("errorMessage");
         const successMessage = document.getElementById("successMessage");
+        const hamburger = document.getElementById("hamburger");
+        const mobileNav = document.getElementById("mobileNav");
+        const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+        const closeMenu = document.getElementById("closeMenu");
+        const fabButton = document.getElementById("fabButton");
+        const fabMenu = document.getElementById("fabMenu");
 
         // Initialize password toggle functionality
         initializePasswordToggles();
+
+        // Initialize mobile menu functionality
+        initializeMobileMenu();
+
+        // Initialize FAB functionality
+        initializeFAB();
 
         // Handle login form submission
         loginForm.addEventListener("submit", function (e) {
@@ -315,6 +975,82 @@
             toggleBtn.classList.remove("show-password");
           }
         }
+
+        // Mobile menu functionality
+        function initializeMobileMenu() {
+          if (hamburger && mobileNav && mobileMenuOverlay && closeMenu) {
+            // Open mobile menu
+            hamburger.addEventListener("click", function () {
+              mobileNav.classList.add("active");
+              mobileMenuOverlay.classList.add("active");
+              document.body.style.overflow = "hidden";
+            });
+
+            // Close mobile menu
+            closeMenu.addEventListener("click", function () {
+              mobileNav.classList.remove("active");
+              mobileMenuOverlay.classList.remove("active");
+              document.body.style.overflow = "auto";
+            });
+
+            // Close mobile menu when clicking overlay
+            mobileMenuOverlay.addEventListener("click", function () {
+              mobileNav.classList.remove("active");
+              mobileMenuOverlay.classList.remove("active");
+              document.body.style.overflow = "auto";
+            });
+
+            // Close mobile menu when clicking on nav links
+            const mobileNavLinks = mobileNav.querySelectorAll(".nav-link");
+            mobileNavLinks.forEach((link) => {
+              link.addEventListener("click", function () {
+                mobileNav.classList.remove("active");
+                mobileMenuOverlay.classList.remove("active");
+                document.body.style.overflow = "auto";
+              });
+            });
+          }
+        }
+
+        // FAB functionality
+        function initializeFAB() {
+          if (fabButton && fabMenu) {
+            fabButton.addEventListener("click", function () {
+              fabMenu.classList.toggle("active");
+              fabButton.classList.toggle("active");
+            });
+
+            // Close FAB menu when clicking outside
+            document.addEventListener("click", function (e) {
+              if (
+                !fabButton.contains(e.target) &&
+                !fabMenu.contains(e.target)
+              ) {
+                fabMenu.classList.remove("active");
+                fabButton.classList.remove("active");
+              }
+            });
+
+            // Close FAB menu when clicking on FAB items
+            const fabItems = fabMenu.querySelectorAll(".fab-item");
+            fabItems.forEach((item) => {
+              item.addEventListener("click", function () {
+                fabMenu.classList.remove("active");
+                fabButton.classList.remove("active");
+              });
+            });
+          }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+          const navContainer = document.querySelector(".nav-container");
+          if (window.scrollY > 50) {
+            navContainer.classList.add("scrolled");
+          } else {
+            navContainer.classList.remove("scrolled");
+          }
+        });
       });
     </script>
   </body>
